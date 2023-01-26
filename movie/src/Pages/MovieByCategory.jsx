@@ -1,10 +1,13 @@
 import React from "react";
+import { useParams } from "react-router";
 import MovieShow from "../Components/MovieShow";
 import { useGetMovieByCategoryQuery } from "../Features/MovieSlice";
 
-const Home = () => {
-  const { data, isError, isLoading } = useGetMovieByCategoryQuery("popular");
-  console.log(data);
+const MovieByCategory = () => {
+  const { category } = useParams();
+
+  const { data, isError, isLoading } = useGetMovieByCategoryQuery(category);
+
   if (isLoading) {
     return (
       <div>
@@ -18,12 +21,12 @@ const Home = () => {
       </div>
     );
   }
-
   return (
-    <div>
+    <>
+      {" "}
       <MovieShow movies={data} />
-    </div>
+    </>
   );
 };
 
-export default Home;
+export default MovieByCategory;

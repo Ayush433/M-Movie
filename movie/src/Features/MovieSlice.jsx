@@ -17,3 +17,4 @@ export const MovieSlice = createApi({
     }),
   }),
 });
+export const useGetMovieByCategoryQuery = MovieSlice.useGetMovieByCategoryQuery;
