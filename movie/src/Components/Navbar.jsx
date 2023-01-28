@@ -6,10 +6,10 @@ const Navbar = () => {
     <div>
       <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
-          <NavLink href="https://flowbite.com/" class="flex items-center">
+          <NavLink to="/" class="flex items-center">
             <img
               src="https://play-lh.googleusercontent.com/VqtZMtYiMHkMlvoN3Uqyvd42mwa427QYlKgCEbiJ-qrBza_C4MnV5HkRDOj0wbYU3FuS"
-              class="h-6 mr-3 sm:h-9"
+              class="h-3 mr-3 sm:h-9"
               alt="Flowbite Logo"
             />
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
@@ -131,14 +131,6 @@ const Navbar = () => {
                   class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Upcoming
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  Services
                 </NavLink>
               </li>
             </ul>

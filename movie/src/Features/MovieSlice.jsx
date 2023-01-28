@@ -1,6 +1,6 @@
-import { createAction } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const api_key = "2a0f926961d00c667e191a21c14461f8";
 export const MovieSlice = createApi({
   reducerPath: "movieApi",
   baseQuery: fetchBaseQuery({
@@ -11,10 +11,21 @@ export const MovieSlice = createApi({
       query: (query) => ({
         url: `movie/${query}`,
         params: {
-          api_key: "2a0f926961d00c667e191a21c14461f8",
+          api_key: api_key,
+        },
+      }),
+    }),
+
+    getSearchMovie: builder.query({
+      query: (SearchText) => ({
+        url: "search/movie",
+        params: {
+          api_key: api_key,
+          query: SearchText,
         },
       }),
     }),
   }),
 });
-export const useGetMovieByCategoryQuery = MovieSlice.useGetMovieByCategoryQuery;
+export const { useGetMovieByCategoryQuery, useGetSearchMovieQuery } =
+  MovieSlice;

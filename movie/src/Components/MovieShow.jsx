@@ -1,9 +1,9 @@
 import React from "react";
-
+import { useGetMovieByCategoryQuery } from "../Features/MovieSlice";
 const MovieShow = ({ movies }) => {
   return (
-    <div>
-      <div className="grid grid-cols-5 p-4 gap-5">
+    <div className="">
+      <div className="grid grid-cols-5 p-4 gap-5 items-start md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1">
         {movies &&
           movies.results.map((movie) => {
             return (

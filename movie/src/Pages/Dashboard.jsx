@@ -50,6 +50,7 @@ const Dashboard = () => {
         {movie &&
           movie.map((m) => {
             return (
+              
               <div key={m.id}>
                 <img
                   src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${m.poster_path}`}

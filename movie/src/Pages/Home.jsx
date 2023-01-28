@@ -1,18 +1,18 @@
-import React from "react";
+import React, { Suspense } from "react";
 import MovieShow from "../Components/MovieShow";
 import { useGetMovieByCategoryQuery } from "../Features/MovieSlice";
 
 const Home = () => {
   const { data, isError, isLoading } = useGetMovieByCategoryQuery("popular");
-  console.log(data);
+
   if (isLoading) {
     return (
       <div>
         <lottie-player
-          src="https://assets1.lottiefiles.com/packages/lf20_x62chJ.json"
+          src="https://assets5.lottiefiles.com/private_files/lf30_tcux3hw6.json"
           background="transparent"
           speed="1"
-          loop
+          controls
           autoplay
         ></lottie-player>
       </div>
