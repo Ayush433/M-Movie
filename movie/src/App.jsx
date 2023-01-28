@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar";
 import { Routes, Route } from "react-router";
 
 import MovieByCategory from "./Pages/MovieByCategory";
+import Search from "./Pages/Search";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="pages/:category" element={<MovieByCategory />} />
+        <Route path="search/movie/:searchText" element={<Search />} />
       </Routes>
     </div>
   );

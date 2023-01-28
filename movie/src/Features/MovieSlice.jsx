@@ -16,16 +16,16 @@ export const MovieSlice = createApi({
       }),
     }),
 
-    getSearchMovie: builder.query({
-      query: (SearchText) => ({
-        url: "search/movie",
+    getSearchMovies: builder.query({
+      query: (searchText) => ({
+        url: "/search/movie",
         params: {
           api_key: api_key,
-          query: SearchText,
+          query: searchText,
         },
       }),
     }),
   }),
 });
-export const { useGetMovieByCategoryQuery, useGetSearchMovieQuery } =
+export const { useGetMovieByCategoryQuery, useGetSearchMoviesQuery } =
   MovieSlice;

@@ -1,7 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+import { useFormik } from "formik";
 
 const Navbar = () => {
+  const nav = useNavigate();
+  const formik = useFormik({
+    initialValues: {
+      searchText: "",
+    },
+    onSubmit: (val, { resetForm }) => {
+      nav(`/search/movie/${val.searchText}`);
+      resetForm();
+    },
+  });
   return (
     <div>
       <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
@@ -56,12 +67,17 @@ const Navbar = () => {
                 </svg>
                 <span class="sr-only">Search icon</span>
               </div>
-              <input
-                type="text"
-                id="search-navbar"
-                class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-              />
+              <form onSubmit={formik.handleSubmit}>
+                <input
+                  type="search"
+                  onChange={formik.handleChange}
+                  values={formik.values.searchText}
+                  id="searchText"
+                  class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search..."
+                  name="searchText"
+                />
+              </form>
             </div>
             <button
               data-collapse-toggle="navbar-search"
