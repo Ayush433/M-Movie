@@ -3,7 +3,8 @@ import { useParams } from "react-router";
 import { useGetMovieIdQuery } from "../Features/MovieSlice";
 
 const Detail = () => {
-  const { id } = useParams;
+  const { id } = useParams();
+
   const { data, isError, isLoading } = useGetMovieIdQuery(id);
   if (isLoading) {
     return (
@@ -18,7 +19,20 @@ const Detail = () => {
     );
   }
   console.log(data);
-  return <div>Detail</div>;
+  return (
+    <div>
+      {data && (
+        <div>
+          <iframe
+            className="w-[60%] aspect-video p-5"
+            src={`https://www.youtube.com/embed/${data.results[0]?.key}`}
+            allowFullScreen
+            autoplay
+          ></iframe>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Detail;

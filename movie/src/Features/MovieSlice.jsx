@@ -28,8 +28,8 @@ export const MovieSlice = createApi({
 
     getMovieId: builder.query({
       query: (movieId) => ({
-        // url: `/movie/${movieId}/videos`,
         url: `/movie/${movieId}/videos`,
+        // url: `/movie/${movieId}`,
         params: {
           api_key: api_key,
         },
