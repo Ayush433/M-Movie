@@ -25,7 +25,20 @@ export const MovieSlice = createApi({
         },
       }),
     }),
+
+    getMovieId: builder.query({
+      query: (movieId) => ({
+        // url: `/movie/${movieId}/videos`,
+        url: `/movie/${movieId}/videos`,
+        params: {
+          api_key: api_key,
+        },
+      }),
+    }),
   }),
 });
-export const { useGetMovieByCategoryQuery, useGetSearchMoviesQuery } =
-  MovieSlice;
+export const {
+  useGetMovieByCategoryQuery,
+  useGetSearchMoviesQuery,
+  useGetMovieIdQuery,
+} = MovieSlice;
