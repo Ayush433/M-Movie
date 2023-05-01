@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router";
 import MovieByCategory from "./Pages/MovieByCategory";
 import Search from "./Pages/Search";
 import Detail from "./Pages/Detail";
+import PageQuery from "./Pages/PageQuery";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="pages/:category" element={<MovieByCategory />} />
         <Route path="search/movie/:searchText" element={<Search />} />
+        <Route path="/movie/:page" element={<PageQuery />} />
         <Route path="/movie/:id" element={<Detail />} />
       </Routes>
     </div>

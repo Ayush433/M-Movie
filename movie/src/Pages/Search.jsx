@@ -23,6 +23,13 @@ const Search = () => {
       </div>
     );
   }
+  if (movies?.results?.length === 0) {
+    return (
+      <h1 className="p-5 text-2xl font-semibold">
+        Try using another keyword...
+      </h1>
+    );
+  }
   return (
     <div>
       {" "}
@@ -31,6 +38,7 @@ const Search = () => {
           movies.results.map((movie) => {
             return (
               <div
+               
                 key={movie.id}
                 className="shadow-2xl  hover:scale-110 ease-in duration-300 cursor-pointer"
               >

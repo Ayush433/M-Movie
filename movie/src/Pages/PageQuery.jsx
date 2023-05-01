@@ -1,9 +1,16 @@
-import { useGetMovieByCategoryQuery } from "../Features/MovieSlice";
-import { useNavigate } from "react-router";
+import React, { Suspense } from "react";
+import { useLocation, useNavigate } from "react-router";
 import MovieShow from "../Components/MovieShow";
-const Home = () => {
-  const { data, isError, isLoading } = useGetMovieByCategoryQuery("popular");
+import { useGetMovieByPageQuery } from "../Features/MovieSlice";
+
+const PageQuery = () => {
   const nav = useNavigate();
+  const { state = {} } = useLocation();
+  console.log(state);
+  const { data, isError, isLoading } = useGetMovieByPageQuery({
+    path: state?.path,
+    page: state?.page,
+  });
 
   if (isLoading) {
     return (
@@ -19,18 +26,14 @@ const Home = () => {
     );
   }
 
-  if (!data) {
-    return <p>An error has occurred</p>;
-  }
-
   return (
     <div>
       <MovieShow movies={data} />
       <button
         onClick={() => {
-          nav(`/movie/${data?.page}`, {
+          nav("/movie/" + (data?.page || 1), {
             state: {
-              path: "popular",
+              path: state.path,
               page: data.page + 1,
             },
           });
@@ -43,4 +46,5 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+
+export default PageQuery;
